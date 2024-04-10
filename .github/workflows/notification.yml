@@ -1,0 +1,13 @@
+name: MS Teams Notification
+
+on: [push]
+
+jobs:
+  notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Notification to MS Teams
+        uses: ravsamhq/notify-msteams@v1
+        with:
+          webhook-url: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          message: "GitHub에서 새로운 push 이벤트가 발생했습니다!"
